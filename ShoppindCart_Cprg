@@ -1,0 +1,35 @@
+#include<stdio.h>
+#include<ctype.h>
+int main()
+{
+    float quantity,price_per_unit,item_cost;
+    float total_bill=0.0;
+    char add_another_item;
+    do
+    {
+    printf("Enter quantity:\n");
+    scanf("%f",&quantity);
+    printf("Enter price per unit:\n");
+    scanf("%f",&price_per_unit);
+    item_cost=quantity*price_per_unit;
+    total_bill=total_bill+item_cost;
+    printf("Do you want to add another items?(Y/N):");
+    scanf(" %c",&add_another_item);
+    }
+    while(toupper(add_another_item)=='Y');
+    printf("\n_____Billing Summary_____\n");
+    printf("Subtotal:%.2f Rs\n",total_bill);
+    if(total_bill>2000.0)
+    {
+        float discount_amount;
+        discount_amount=total_bill*0.10;
+        printf("Discount(10%%):%.2f Rs\n",discount_amount);
+        printf("New total bill=%.2f Rs\n",discount_amount);
+    }
+    else
+    {
+        printf("No discount applied.\n");
+        printf("Total bill=%.2f Rs\n",total_bill);
+    }
+    return 0;
+}
