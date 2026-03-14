@@ -1,0 +1,72 @@
+#include<stdio.h>
+struct book
+{
+    char title[30];
+    char author[30];
+    char publication[30];
+};
+int main()
+{
+    int n,i,len;
+    printf("Enter how many books:\n ");
+    scanf("%d",&n);
+    struct book books[n];
+
+    for(i=0;i<n;i++)
+    {
+        printf("Enter details of book number %d\n",i+1);
+        getchar();
+
+        printf("Title: ");
+        fgets(books[i].title,sizeof(books[i].title),stdin);
+        len=0;
+        while(books[i].title[len]!='\0')
+        {
+            if(books[i].title[len]=='\n')
+            {
+                books[i].title[len]='\0';
+                break;
+            }
+            len++;
+        }
+
+        printf("Author: ");
+        fgets(books[i].author,sizeof(books[i].author),stdin);
+        len=0;
+        while(books[i].author[len]!='\0')
+        {
+            if(books[i].author[len]=='\n')
+            {
+                books[i].author[len]='\0';
+                break;
+            }
+            len++;
+        }
+
+        printf("Publication: ");
+        fgets(books[i].publication,sizeof(books[i].publication),stdin);
+        len=0;
+       while(books[i].publication[len]!='\0')
+        {
+            if(books[i].publication[len]=='\n')
+            {
+                books[i].publication[len]='\0';
+                break;
+            }
+            len++;
+        }
+    }
+    printf("\n\n_____List of book details_____\n");
+        printf("%-30s %-20s %-20s","Title","Author","Publication");
+        printf("\n");
+
+        for(i=0;i<n;i++)
+        {
+            printf("%-30s %-20s %-20s\n",books[i].title,books[i].author,books[i].publication);
+        }
+
+
+return 0;
+
+
+}
